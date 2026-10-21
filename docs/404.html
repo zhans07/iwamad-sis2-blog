@@ -1,0 +1,25 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      const segment = '/iwamad-sis2-blog'
+      const path = window.location.pathname
+
+      if (path.startsWith(segment)) {
+        const route = path.slice(segment.length)
+        window.location.replace(
+          segment + '/?redirect=' + encodeURIComponent(route + window.location.search + window.location.hash)
+        )
+      } else {
+        window.location.replace(segment + '/')
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to the blog...</p>
+  </body>
+</html>
