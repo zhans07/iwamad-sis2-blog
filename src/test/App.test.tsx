@@ -60,4 +60,12 @@ describe('Blog application', () => {
       await screen.findByRole('heading', { name: 'Welcome back.' }),
     ).toBeInTheDocument()
   })
+
+  it('shows a 404 page for an unknown route', async () => {
+    renderApp('/this-page-does-not-exist')
+
+    expect(
+      await screen.findByText(/page not found|not found|404/i),
+    ).toBeInTheDocument()
+  })
 })
